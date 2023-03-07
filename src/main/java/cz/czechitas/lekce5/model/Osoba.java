@@ -9,6 +9,12 @@ public class Osoba {
 
     private Telefon telefon;
 
+    private String pracovniEmail;
+
+    private String soukromiEmail;
+
+    private Adresa adresa;
+
     public void setJmeno(String jmeno) {
         Objects.requireNonNull(jmeno);
         if (jmeno.isBlank()) {
@@ -54,6 +60,32 @@ public class Osoba {
 
     public Telefon getTelefon() {
         return telefon;
+    }
+
+    public String getPracovniEmail() {
+        return pracovniEmail;
+
+    }
+
+    public void setPracovniEmail(String pracovniEmail) {
+        Objects.requireNonNull(pracovniEmail);
+        if (pracovniEmail.isBlank()) {
+            System.err.println("Email nemůže být prázdné.");
+            return;
+        }
+                if (pracovniEmail.contains("@" + ".")) {
+            System.err.println("Pole musí obsahovat @ a . .");
+            return;
+        }
+        this.pracovniEmail = pracovniEmail;
+    }
+
+    public String getSoukromiEmail() {
+        return soukromiEmail;
+    }
+
+    public void setSoukromiEmail(String soukromiEmail) {
+        this.soukromiEmail = soukromiEmail;
     }
 
     public void setTelefon(Telefon telefon) {
